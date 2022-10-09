@@ -1,8 +1,19 @@
 from flask import Flask
 from redis import Redis
+import mysql.connector
+
 
 app = Flask(__name__)
 redis = Redis(host='redis', port=6379)
+
+config = {
+        'user': 'carford',
+        'password': 'carford123',
+        'host': 'db',
+        'port': '3306',
+        'database': 'carford_db'
+    }
+connection = mysql.connector.connect(**config)
 
 
 @app.route('/')
