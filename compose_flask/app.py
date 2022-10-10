@@ -7,19 +7,25 @@ app = Flask(__name__)
 redis = Redis(host='redis', port=6379)
 
 config = {
-        'user': 'carford',
-        'password': 'carford123',
+        'user': 'cardford',
+        'password': 'cardford123',
         'host': 'db',
         'port': '3306',
         'database': 'carford_db'
     }
 connection = mysql.connector.connect(**config)
+cursor = connection.cursor()
+
+# comando = 'INSERT INTO proprietarios (nome, oportunidade_venda) VALUES ("teste", true)'
+
+cursor.close()
+connection.close()
 
 
 @app.route('/')
 def hello():
     redis.incr('hits')
-    return 'This Compose/Flask demo has been viewed %s time(s).' % redis.get('hits')
+    return 'This Compose %s time(s).' % redis.get('hits')
 
 
 if __name__ == "__main__":
