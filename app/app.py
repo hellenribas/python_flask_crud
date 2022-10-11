@@ -15,6 +15,7 @@ config = {
 connection = mysql.connector.connect(**config)
 
 
+
 @app.route('/carros', methods=['GET'])
 def hello():
     cursor = connection.cursor()
