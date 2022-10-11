@@ -1,4 +1,4 @@
-from models.proprietarios import Proprietarios
+from app.models.model import Proprietarios
 
 db = [
   Proprietarios('proprietario1', True),

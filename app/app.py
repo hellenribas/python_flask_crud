@@ -1,10 +1,9 @@
 from flask import Flask, make_response, jsonify, request
 import mysql.connector
-from mvc_flask import FlaskMVC
 
 
 app = Flask(__name__)
-FlaskMVC(app)
+
 config = {
         'user': 'carford',
         'password': 'carford123',
@@ -31,6 +30,7 @@ def hello():
         )
     )
 
+from controllers.prop import *
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
